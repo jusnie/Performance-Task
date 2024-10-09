@@ -1,81 +1,66 @@
-#include <stdio.h>
+#include <iostream>  // Credits by Juanie Cuenca and Lance Servino
+#include <iomanip>
 #include <conio.h>
+#include <string.h>
+using namespace std;
+
+void centerText(const char* text, int width) {
+    int length = strlen(text);
+    int pos = (width - length) / 2;
+    for (int i = 0; i < pos; i++) {
+        cout << "=";
+    }
+    cout << text;
+    for (int i = 0; i < pos; i++) {
+        cout << "=";
+    }
+    cout << endl;
+}
 
 int main() {
-    // Variable declarations
-    char lrn[13], firstName[16], midInitial[2], lastName[16];
-    char track[11], strand[6], section[11], sexCode[7], adviser[21];
+    char lrn[13], firstName[16], midInitial[2], lastName[16], track[11], strand[6];
+    char section[11], sexCode[7], adviser[21];
     int gradeLevel, age;
-    float gradeFil, gradeComprog1, gradeComprog2;
-    float avgFil, avgComprog, genAverage;
+    float fil_qtr1, fil_qtr2, comprog2_qtr1, comprog2_qtr2;
+    float avgFilipino, avgComprog2, generalAvg;
 
-    // Input details
-    clrscr(); // Clear the screen
-    printf("<< Report Card Data Entry >>\n\n");
+    // Header
+    clrscr();
+    centerText("<<< Report Card Data Entry >>>", 80);
+    cout << endl;
 
-    printf("Enter LRN No: ");
-    scanf("%s", lrn);
+    // Input Personal Information
+    cout << "Enter the following information:\n";
+    cout << "LRN No: "; cin >> setw(13) >> lrn;
+    cout << "First Name: "; cin >> setw(16) >> firstName;
+    cout << "Middle Initial: "; cin >> setw(2) >> midInitial;
+    cout << "Last Name: "; cin >> setw(16) >> lastName;
+    cout << "Track: "; cin >> setw(11) >> track;
+    cout << "Strand: "; cin >> setw(6) >> strand;
+    cout << "Grade Level: "; cin >> gradeLevel;
+    cout << "Section: "; cin >> setw(11) >> section;
+    cout << "Sex Code: "; cin >> setw(7) >> sexCode;
+    cout << "Age: "; cin >> age;
+    cout << "Name of Adviser: "; cin >> setw(21) >> adviser;
 
-    printf("Enter First Name: ");
-    scanf("%s", firstName);
+    cout << "\nPress any key to input the grades per quarter...";
+    getch();
+    clrscr();
 
-    printf("Enter Middle Initial: ");
-    scanf("%s", midInitial);
+    // Input Grades
+    centerText("<<< Input Grades >>>", 80);
+    cout << endl;
+    cout << "Enter grades for Filipino (Q1, Q2): "; cin >> fil_qtr1 >> fil_qtr2;
+    cout << "Enter grades for Comprog 2 (Q1, Q2): "; cin >> comprog2_qtr1 >> comprog2_qtr2;
 
-    printf("Enter Last Name: ");
-    scanf("%s", lastName);
+    // Compute averages
+    avgFilipino = (fil_qtr1 + fil_qtr2) / 2;
+    avgComprog2 = (comprog2_qtr1 + comprog2_qtr2) / 2;
+    generalAvg = (avgFilipino + avgComprog2) / 2;
 
-    printf("Enter Track: ");
-    scanf("%s", track);
-
-    printf("Enter Strand: ");
-    scanf("%s", strand);
-
-    printf("Enter Grade Level: ");
-    scanf("%d", &gradeLevel);
-
-    printf("Enter Section: ");
-    scanf("%s", section);
-
-    printf("Enter Sex Code: ");
-    scanf("%s", sexCode);
-
-    printf("Enter Age: ");
-    scanf("%d", &age);
-
-    printf("Enter Name of Adviser: ");
-    scanf("%s", adviser);
-
-    // Input grades
-    printf("\nEnter Grade in Filipino (Qtr 1): ");
-    scanf("%f", &gradeFil);
-
-    printf("Enter Grade in Comprog (Qtr 1): ");
-    scanf("%f", &gradeComprog1);
-
-    printf("Enter Grade in Comprog (Qtr 2): ");
-    scanf("%f", &gradeComprog2);
-
-    // Computations
-    avgFil = gradeFil;
-    avgComprog = (gradeComprog1 + gradeComprog2) / 2;
-    genAverage = (avgFil + avgComprog) / 2;
-
-    // Output results
-    printf("\n<<Report Card Summary>>\n");
-    printf("LRN No: %s\n", lrn);
-    printf("Name: %s %s %s\n", firstName, midInitial, lastName);
-    printf("Track: %s\n", track);
-    printf("Strand: %s\n", strand);
-    printf("Grade Level: %d\n", gradeLevel);
-    printf("Section: %s\n", section);
-    printf("Sex Code: %s\n", sexCode);
-    printf("Age: %d\n", age);
-    printf("Name of Adviser: %s\n", adviser);
-    printf("\nAverage in Filipino: %.2f\n", avgFil);
-    printf("Average in Comprog: %.2f\n", avgComprog);
-    printf("General Average: %.2f\n", genAverage);
-
-    getch(); // Wait for a key press to close the program
-    return 0;
-}
+    // Display Results
+    clrscr();
+    centerText("<<< Report Card Summary >>>", 80);
+    cout << endl;
+    cout << setw(20) << left << "LRN No: " << lrn << endl;
+    cout << setw(20) << left << "Name: " << firstName << " " << mid
