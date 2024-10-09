@@ -1,4 +1,5 @@
-#include<iostream.h> // CEDITS BY JUANIE & SERVINO
+======================================
+#include<iostream.h> // CREDITS BY JUANIE & SERVINO
 #include<conio.h>
 
 void main() {
@@ -47,16 +48,16 @@ void main() {
                     hope_avg + perdev_avg + ucsp_avg + comp1_avg + comp2_avg) / 9;
 
     // Display the report card
-    cout << "\n-------------------------------------------------\n";
-    cout << " Gen. Tiburcio De Leon National High School\n";
-    cout << " REPORT CARD S.Y. 2024 – 2025\n";
-    cout << " Lance Servino   Age: 16   Sex: Male\n";
-    cout << " Juanie Cuenca   Age: 18   Sex: Male\n";
-    cout << " Grade Level: ICT-JOBS     Track & Strand: TVL-ICT\n";
-    cout << "-------------------------------------------------\n";
+    cout << "\n=============================================\n";
+    cout << "            Gen. Tiburcio De Leon National High School\n";
+    cout << "                   REPORT CARD S.Y. 2024 – 2025\n";
+    cout << "            Lance Servino   Age: 16   Sex: Male\n";
+    cout << "            Juanie Cuenca   Age: 18   Sex: Male\n";
+    cout << "      Grade Level: ICT-JOBS     Track & Strand: TVL-ICT\n";
+    cout << "=============================================\n";
 
     cout << "Subject\t\tFirst Quarter\tSecond Quarter\tAverage\tRemarks\n";
-    cout << "-------------------------------------------------\n";
+    cout << "=============================================\n";
     cout << "Filipino\t" << filipino_qtr1 << "\t\t" << filipino_qtr2 << "\t\t" << filipino_avg << "\t" << (filipino_avg >= 75 ? "PASSED" : "FAILED") << "\n";
     cout << "Oral Com\t" << oralcom_qtr1 << "\t\t" << oralcom_qtr2 << "\t\t" << oralcom_avg << "\t" << (oralcom_avg >= 75 ? "PASSED" : "FAILED") << "\n";
     cout << "Math\t\t" << math_qtr1 << "\t\t" << math_qtr2 << "\t\t" << math_avg << "\t" << (math_avg >= 75 ? "PASSED" : "FAILED") << "\n";
@@ -66,8 +67,9 @@ void main() {
     cout << "UCSP\t\t" << ucsp_qtr1 << "\t\t" << ucsp_qtr2 << "\t\t" << ucsp_avg << "\t" << (ucsp_avg >= 75 ? "PASSED" : "FAILED") << "\n";
     cout << "Comprog1\t" << comp1_qtr1 << "\t\t" << comp1_qtr2 << "\t\t" << comp1_avg << "\t" << (comp1_avg >= 75 ? "PASSED" : "FAILED") << "\n";
     cout << "Comprog2\t" << comp2_qtr1 << "\t\t" << comp2_qtr2 << "\t\t" << comp2_avg << "\t" << (comp2_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "-------------------------------------------------\n";
+    cout << "=============================================\n";
     cout << "General Average: " << gen_avg << "\n";
 
     getch(); // Wait for a key press
 }
+======================================
