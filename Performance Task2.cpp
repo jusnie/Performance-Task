@@ -1,4 +1,4 @@
-#include<iostream.h>
+#include<iostream.h> // CEDITS BY JUANIE & SERVINO
 #include<conio.h>
 
 void main() {
@@ -50,7 +50,8 @@ void main() {
     cout << "\n-------------------------------------------------\n";
     cout << " Gen. Tiburcio De Leon National High School\n";
     cout << " REPORT CARD S.Y. 2024 – 2025\n";
-    cout << " Name: Juan D. Dela Cruz   Age: 16   Sex: Male\n";
+    cout << " Lance Servino   Age: 16   Sex: Male\n";
+    cout << " Juanie Cuenca   Age: 18   Sex: Male\n";
     cout << " Grade Level: ICT-JOBS     Track & Strand: TVL-ICT\n";
     cout << "-------------------------------------------------\n";
 
