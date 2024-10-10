@@ -13,7 +13,7 @@ def animate_text(text):
 def reflection_input():
     input_text = input("Hi sir, here's our reflection about learning Turbo C++: ")
     if input_text.strip().lower() == "okay":
-        reflection = """
+        reflection = """ Juanie:
 It is really amazing to learn Turbo C++, especially if studied in a historical context and the influence placed on the development of programming languages. 
 As student, while mastering Turbo C++, learns how older compilers work and acquaints him/her with the grounding aspects of C++ programming. 
 It helps develop the basic syntax, control structures, and principles of object-oriented programming into more modern environments.
@@ -24,6 +24,7 @@ Still, working with it teaches the value of minimalism and efficiency and the im
 There might be some issues, though - especially in terms of limited debugging and features compared to most other IDEs. Beating those problems makes you think critically and gives you problem-solving abilities as well. 
 You come to realize just how much technology has advanced and appreciate the origin of C++ programming roots that eventually led to the development of the highly advanced programming frameworks in use today.
 
+Lance: 
 My reflection on my experience is that it is fun and also kind of hard because i am still learning programming and it is a big help for me to learn more because of the experience i had and it can help me for other future activities so that i know what i am going to do
 and it will become more easier and easier once i had a lot more experience coding things
 
