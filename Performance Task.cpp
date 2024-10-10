@@ -1,97 +1,105 @@
-#include <iostream> // Credits by Juanie Cuenca and Lance Servino
+#include <iostream> // Cuenca and Servino
 #include <iomanip>
-#include <conio.h>
-#include <string.h>
+#include <string>
 using namespace std;
 
-void centerText(const char* text, int width) {
-    int length = strlen(text);
-    int pos = (width - length) / 2;
-    for (int i = 0; i < pos; i++) {
-        cout << "=";
-    }
-    cout << text;
-    for (int i = 0; i < pos; i++) {
-        cout << "=";
-    }
-    cout << endl;
+// Function to compute the average of two grades
+float computeAverage(float grade1, float grade2) {
+    return (grade1 + grade2) / 2;
 }
 
-// Structure to represent a student's information
-struct Student {
-    char lrn[13];
-    char firstName[16];
-    char midInitial[2];
-    char lastName[16];
-    char track[11];
-    char strand[6];
-    int gradeLevel;
-    char section[11];
-    char sexCode[7];
-    int age;
-    char adviser[21];
-    float fil_qtr1, fil_qtr2;
-    float comprog2_qtr1, comprog2_qtr2;
-    float avgFilipino, avgComprog2, generalAvg;
-};
+// Function to compute general average based on the averages of multiple subjects
+float computeGeneralAverage(float avgFil, float avgComp1, float avgComp2) {
+    return (avgFil + avgComp1 + avgComp2) / 3;
+}
 
 int main() {
-    Student student;  // Create a student structure instance
+    string lrnNo, firstName, middleInitial, lastName, track, strand, section, sexCode, adviserName;
+    int gradeLevel, age;
+    float gradeFilQtr1, gradeFilQtr2, gradeComp1Qtr1, gradeComp1Qtr2, gradeComp2Qtr1, gradeComp2Qtr2;
+    float avgFil, avgComp1, avgComp2, generalAverage;
 
-    // Header
-    clrscr();
-    centerText("<<< Report Card Data Entry >>>", 80);
-    cout << endl;
-
-    // Input Personal Information
+    // Input layout and design
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << "            <<Report Card Data Entry>>            " << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
     cout << "Enter the following information:\n";
-    cout << "LRN No: "; cin >> setw(13) >> student.lrn;
-    cout << "First Name: "; cin >> setw(16) >> student.firstName;
-    cout << "Middle Initial: "; cin >> setw(2) >> student.midInitial;
-    cout << "Last Name: "; cin >> setw(16) >> student.lastName;
-    cout << "Track: "; cin >> setw(11) >> student.track;
-    cout << "Strand: "; cin >> setw(6) >> student.strand;
-    cout << "Grade Level: "; cin >> student.gradeLevel;
-    cout << "Section: "; cin >> setw(11) >> student.section;
-    cout << "Sex Code: "; cin >> setw(7) >> student.sexCode;
-    cout << "Age: "; cin >> student.age;
-    cout << "Name of Adviser: "; cin >> setw(21) >> student.adviser;
 
-    cout << "\nPress any key to input the grades per quarter...";
-    getch();
-    clrscr();
+    // Input data
+    cout << "LRN No.: ";
+    getline(cin, lrnNo);
+    cout << "First Name: ";
+    getline(cin, firstName);
+    cout << "Middle Initial: ";
+    getline(cin, middleInitial);
+    cout << "Last Name: ";
+    getline(cin, lastName);
+    cout << "Track: ";
+    getline(cin, track);
+    cout << "Strand: ";
+    getline(cin, strand);
+    cout << "Grade Level: ";
+    cin >> gradeLevel;
+    cin.ignore();
+    cout << "Section: ";
+    getline(cin, section);
+    cout << "Sex Code: ";
+    getline(cin, sexCode);
+    cout << "Age: ";
+    cin >> age;
+    cin.ignore();
+    cout << "Name of Adviser: ";
+    getline(cin, adviserName);
 
-    // Input Grades
-    centerText("<<< Input Grades >>>", 80);
-    cout << endl;
-    cout << "Enter grades for Filipino (Q1, Q2): "; cin >> student.fil_qtr1 >> student.fil_qtr2;
-    cout << "Enter grades for Comprog 2 (Q1, Q2): "; cin >> student.comprog2_qtr1 >> student.comprog2_qtr2;
+    // Input grades for each quarter
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << "Enter grades per quarter\n";
+    
+    // Filipino
+    cout << "Filipino Qtr 1 Grade: ";
+    cin >> gradeFilQtr1;
+    cout << "Filipino Qtr 2 Grade: ";
+    cin >> gradeFilQtr2;
+    avgFil = computeAverage(gradeFilQtr1, gradeFilQtr2);
+    
+    // Computer Programming 1
+    cout << "Comprog 1 Qtr 1 Grade: ";
+    cin >> gradeComp1Qtr1;
+    cout << "Comprog 1 Qtr 2 Grade: ";
+    cin >> gradeComp1Qtr2;
+    avgComp1 = computeAverage(gradeComp1Qtr1, gradeComp1Qtr2);
 
-    // Compute averages
-    student.avgFilipino = (student.fil_qtr1 + student.fil_qtr2) / 2;
-    student.avgComprog2 = (student.comprog2_qtr1 + student.comprog2_qtr2) / 2;
-    student.generalAvg = (student.avgFilipino + student.avgComprog2) / 2;
+    // Computer Programming 2
+    cout << "Comprog 2 Qtr 1 Grade: ";
+    cin >> gradeComp2Qtr1;
+    cout << "Comprog 2 Qtr 2 Grade: ";
+    cin >> gradeComp2Qtr2;
+    avgComp2 = computeAverage(gradeComp2Qtr1, gradeComp2Qtr2);
+    
+    // Compute General Average
+    generalAverage = computeGeneralAverage(avgFil, avgComp1, avgComp2);
 
-    // Display Results
-    clrscr();
-    centerText("<<< Report Card Summary >>>", 80);
-    cout << endl;
-    cout << setw(20) << left << "LRN No: " << student.lrn << endl;
-    cout << setw(20) << left << "Name: " << student.firstName << " " << student.midInitial << " " << student.lastName << endl;
-    cout << setw(20) << left << "Track: " << student.track << endl;
-    cout << setw(20) << left << "Strand: " << student.strand << endl;
-    cout << setw(20) << left << "Grade Level: " << student.gradeLevel << endl;
-    cout << setw(20) << left << "Section: " << student.section << endl;
-    cout << setw(20) << left << "Sex Code: " << student.sexCode << endl;
-    cout << setw(20) << left << "Age: " << student.age << endl;
-    cout << setw(20) << left << "Adviser: " << student.adviser << endl;
+    // Display output
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << "            <<Report Card Summary>>            " << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << "LRN No.: " << lrnNo << endl;
+    cout << "Name: " << firstName << " " << middleInitial << ". " << lastName << endl;
+    cout << "Track: " << track << endl;
+    cout << "Strand: " << strand << endl;
+    cout << "Grade Level: " << gradeLevel << endl;
+    cout << "Section: " << section << endl;
+    cout << "Sex Code: " << sexCode << endl;
+    cout << "Age: " << age << endl;
+    cout << "Adviser: " << adviserName << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
+    
+    cout << "Filipino Average: " << avgFil << endl;
+    cout << "Comprog 1 Average: " << avgComp1 << endl;
+    cout << "Comprog 2 Average: " << avgComp2 << endl;
+    cout << setfill('-') << setw(50) << "-" << endl;
+    cout << "General Average: " << generalAverage << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
 
-    cout << endl;
-    centerText("Grades Summary", 80);
-    cout << setw(30) << left << "Filipino (Q1 & Q2 Average): " << fixed << setprecision(2) << student.avgFilipino << endl;
-    cout << setw(30) << left << "Comprog 2 (Q1 & Q2 Average): " << student.avgComprog2 << endl;
-    cout << setw(30) << left << "General Average: " << student.generalAvg << endl;
-
-    getch();
     return 0;
 }
