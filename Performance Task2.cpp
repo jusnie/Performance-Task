@@ -1,75 +1,106 @@
-======================================
-#include<iostream.h> // CREDITS BY JUANIE & SERVINO
-#include<conio.h>
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
 
-void main() {
-    clrscr(); // Clear screen
+// Function to compute the average of two grades
+float computeAverage(float grade1, float grade2) {
+    return (grade1 + grade2) / 2;
+}
 
-    // Variables to store grades
-    int filipino_qtr1, filipino_qtr2, oralcom_qtr1, oralcom_qtr2;
-    int math_qtr1, math_qtr2, science_qtr1, science_qtr2;
-    int hope_qtr1, hope_qtr2, perdev_qtr1, perdev_qtr2;
-    int ucsp_qtr1, ucsp_qtr2, comp1_qtr1, comp1_qtr2;
-    int comp2_qtr1, comp2_qtr2;
+// Function to determine if the subject is passed or failed based on average
+string checkPassOrFail(float average) {
+    return (average >= 75) ? "PASSED" : "FAILED";
+}
 
-    // Enter grades for each subject
-    cout << "Enter the Grade for the following subjects Per Quarter:\n";
-    cout << "Filipino Grade Qtr1: "; cin >> filipino_qtr1;
-    cout << "Filipino Grade Qtr2: "; cin >> filipino_qtr2;
-    cout << "Oral Communication Grade Qtr1: "; cin >> oralcom_qtr1;
-    cout << "Oral Communication Grade Qtr2: "; cin >> oralcom_qtr2;
-    cout << "General Mathematics Grade Qtr1: "; cin >> math_qtr1;
-    cout << "General Mathematics Grade Qtr2: "; cin >> math_qtr2;
-    cout << "Science Grade Qtr1: "; cin >> science_qtr1;
-    cout << "Science Grade Qtr2: "; cin >> science_qtr2;
-    cout << "HOPE Grade Qtr1: "; cin >> hope_qtr1;
-    cout << "HOPE Grade Qtr2: "; cin >> hope_qtr2;
-    cout << "Personal Development Grade Qtr1: "; cin >> perdev_qtr1;
-    cout << "Personal Development Grade Qtr2: "; cin >> perdev_qtr2;
-    cout << "UCSP Grade Qtr1: "; cin >> ucsp_qtr1;
-    cout << "UCSP Grade Qtr2: "; cin >> ucsp_qtr2;
-    cout << "Comprog 1 Grade Qtr1: "; cin >> comp1_qtr1;
-    cout << "Comprog 1 Grade Qtr2: "; cin >> comp1_qtr2;
-    cout << "Comprog 2 Grade Qtr1: "; cin >> comp2_qtr1;
-    cout << "Comprog 2 Grade Qtr2: "; cin >> comp2_qtr2;
+int main() {
+    // Student details
+    string lrnNo = "1234567890";
+    string firstName = "Juan", middleInitial = "D.", lastName = "Dela Cruz";
+    string track = "TVL-ICT", section = "ICT-JOBS", sex = "Male", adviser = "Name of Adviser";
+    int gradeLevel = 12, age = 16;
+    string schoolYear = "S.Y. 2024 – 2025";
+    string schoolName = "Gen. Tiburcio De Leon National High School";
 
-    // Calculate the averages
-    float filipino_avg = (filipino_qtr1 + filipino_qtr2) / 2.0;
-    float oralcom_avg = (oralcom_qtr1 + oralcom_qtr2) / 2.0;
-    float math_avg = (math_qtr1 + math_qtr2) / 2.0;
-    float science_avg = (science_qtr1 + science_qtr2) / 2.0;
-    float hope_avg = (hope_qtr1 + hope_qtr2) / 2.0;
-    float perdev_avg = (perdev_qtr1 + perdev_qtr2) / 2.0;
-    float ucsp_avg = (ucsp_qtr1 + ucsp_qtr2) / 2.0;
-    float comp1_avg = (comp1_qtr1 + comp1_qtr2) / 2.0;
-    float comp2_avg = (comp2_qtr1 + comp2_qtr2) / 2.0;
+    // Quarter grades
+    float filipinoQtr1, filipinoQtr2, oralComQtr1, oralComQtr2, genMathQtr1, genMathQtr2;
+    float scienceQtr1, scienceQtr2, hopeQtr1, hopeQtr2, perDevQtr1, perDevQtr2;
+    float ucspQtr1, ucspQtr2, compProg1Qtr1, compProg1Qtr2, compProg2Qtr1, compProg2Qtr2;
 
-    float gen_avg = (filipino_avg + oralcom_avg + math_avg + science_avg + 
-                    hope_avg + perdev_avg + ucsp_avg + comp1_avg + comp2_avg) / 9;
+    // Enter grades
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << "       Enter the Grades for the following subjects       " << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
+
+    // Input each subject's grades
+    cout << "Filipino Grade Qtr1: "; cin >> filipinoQtr1;
+    cout << "Filipino Grade Qtr2: "; cin >> filipinoQtr2;
+    cout << "Oral Communication Qtr1: "; cin >> oralComQtr1;
+    cout << "Oral Communication Qtr2: "; cin >> oralComQtr2;
+    cout << "General Mathematics Qtr1: "; cin >> genMathQtr1;
+    cout << "General Mathematics Qtr2: "; cin >> genMathQtr2;
+    cout << "Science Qtr1: "; cin >> scienceQtr1;
+    cout << "Science Qtr2: "; cin >> scienceQtr2;
+    cout << "HOPE Qtr1: "; cin >> hopeQtr1;
+    cout << "HOPE Qtr2: "; cin >> hopeQtr2;
+    cout << "Personal Development Qtr1: "; cin >> perDevQtr1;
+    cout << "Personal Development Qtr2: "; cin >> perDevQtr2;
+    cout << "UCSP Qtr1: "; cin >> ucspQtr1;
+    cout << "UCSP Qtr2: "; cin >> ucspQtr2;
+    cout << "Comprog 1 Qtr1: "; cin >> compProg1Qtr1;
+    cout << "Comprog 1 Qtr2: "; cin >> compProg1Qtr2;
+    cout << "Comprog 2 Qtr1: "; cin >> compProg2Qtr1;
+    cout << "Comprog 2 Qtr2: "; cin >> compProg2Qtr2;
+
+    // Compute averages for each subject
+    float avgFilipino = computeAverage(filipinoQtr1, filipinoQtr2);
+    float avgOralCom = computeAverage(oralComQtr1, oralComQtr2);
+    float avgGenMath = computeAverage(genMathQtr1, genMathQtr2);
+    float avgScience = computeAverage(scienceQtr1, scienceQtr2);
+    float avgHOPE = computeAverage(hopeQtr1, hopeQtr2);
+    float avgPerDev = computeAverage(perDevQtr1, perDevQtr2);
+    float avgUCSP = computeAverage(ucspQtr1, ucspQtr2);
+    float avgCompProg1 = computeAverage(compProg1Qtr1, compProg1Qtr2);
+    float avgCompProg2 = computeAverage(compProg2Qtr1, compProg2Qtr2);
+
+    // Compute general average
+    float generalAverage = (avgFilipino + avgOralCom + avgGenMath + avgScience + avgHOPE + avgPerDev + avgUCSP + avgCompProg1 + avgCompProg2) / 9;
 
     // Display the report card
-    cout << "\n=============================================\n";
-    cout << "            Gen. Tiburcio De Leon National High School\n";
-    cout << "                   REPORT CARD S.Y. 2024 – 2025\n";
-    cout << "            Lance Servino   Age: 16   Sex: Male\n";
-    cout << "            Juanie Cuenca   Age: 18   Sex: Male\n";
-    cout << "      Grade Level: ICT-JOBS     Track & Strand: TVL-ICT\n";
-    cout << "=============================================\n";
+    cout << setfill('=') << setw(50) << "=" << endl;
+    cout << setw(30) << schoolName << endl;
+    cout << "   Corner Mercado St., Gen. T. De Leon, Valenzuela City" << endl;
+    cout << "        SENIOR HIGH SCHOOL DEPARTMENT" << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
 
-    cout << "Subject\t\tFirst Quarter\tSecond Quarter\tAverage\tRemarks\n";
-    cout << "=============================================\n";
-    cout << "Filipino\t" << filipino_qtr1 << "\t\t" << filipino_qtr2 << "\t\t" << filipino_avg << "\t" << (filipino_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Oral Com\t" << oralcom_qtr1 << "\t\t" << oralcom_qtr2 << "\t\t" << oralcom_avg << "\t" << (oralcom_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Math\t\t" << math_qtr1 << "\t\t" << math_qtr2 << "\t\t" << math_avg << "\t" << (math_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Science\t\t" << science_qtr1 << "\t\t" << science_qtr2 << "\t\t" << science_avg << "\t" << (science_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "HOPE\t\t" << hope_qtr1 << "\t\t" << hope_qtr2 << "\t\t" << hope_avg << "\t" << (hope_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Per Dev\t\t" << perdev_qtr1 << "\t\t" << perdev_qtr2 << "\t\t" << perdev_avg << "\t" << (perdev_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "UCSP\t\t" << ucsp_qtr1 << "\t\t" << ucsp_qtr2 << "\t\t" << ucsp_avg << "\t" << (ucsp_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Comprog1\t" << comp1_qtr1 << "\t\t" << comp1_qtr2 << "\t\t" << comp1_avg << "\t" << (comp1_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "Comprog2\t" << comp2_qtr1 << "\t\t" << comp2_qtr2 << "\t\t" << comp2_avg << "\t" << (comp2_avg >= 75 ? "PASSED" : "FAILED") << "\n";
-    cout << "=============================================\n";
-    cout << "General Average: " << gen_avg << "\n";
+    cout << "REPORT CARD           " << schoolYear << endl;
+    cout << "LRN No: " << lrnNo << endl;
+    cout << "Name: " << firstName << " " << middleInitial << " " << lastName << endl;
+    cout << "Grade Level & Sec: " << section << endl;
+    cout << "Track & Strand: " << track << endl;
+    cout << "Sex: " << sex << endl;
+    cout << "Age: " << age << endl;
+    cout << setfill('-') << setw(50) << "-" << endl;
 
-    getch(); // Wait for a key press
+    cout << left << setw(20) << "Subject" << setw(10) << "First Qtr" << setw(10) << "Second Qtr" << setw(10) << "Average" << setw(10) << "Remarks" << endl;
+    cout << setfill('-') << setw(50) << "-" << endl;
+    cout << left << setw(20) << "Filipino" << setw(10) << filipinoQtr1 << setw(10) << filipinoQtr2 << setw(10) << avgFilipino << setw(10) << checkPassOrFail(avgFilipino) << endl;
+    cout << left << setw(20) << "Oral Communication" << setw(10) << oralComQtr1 << setw(10) << oralComQtr2 << setw(10) << avgOralCom << setw(10) << checkPassOrFail(avgOralCom) << endl;
+    cout << left << setw(20) << "Gen. Mathematics" << setw(10) << genMathQtr1 << setw(10) << genMathQtr2 << setw(10) << avgGenMath << setw(10) << checkPassOrFail(avgGenMath) << endl;
+    cout << left << setw(20) << "Science" << setw(10) << scienceQtr1 << setw(10) << scienceQtr2 << setw(10) << avgScience << setw(10) << checkPassOrFail(avgScience) << endl;
+    cout << left << setw(20) << "HOPE" << setw(10) << hopeQtr1 << setw(10) << hopeQtr2 << setw(10) << avgHOPE << setw(10) << checkPassOrFail(avgHOPE) << endl;
+    cout << left << setw(20) << "Per. Dev" << setw(10) << perDevQtr1 << setw(10) << perDevQtr2 << setw(10) << avgPerDev << setw(10) << checkPassOrFail(avgPerDev) << endl;
+    cout << left << setw(20) << "UCSP" << setw(10) << ucspQtr1 << setw(10) << ucspQtr2 << setw(10) << avgUCSP << setw(10) << checkPassOrFail(avgUCSP) << endl;
+    cout << left << setw(20) << "COMPROG1" << setw(10) << compProg1Qtr1 << setw(10) << compProg1Qtr2 << setw(10) << avgCompProg1 << setw(10) << checkPassOrFail(avgCompProg1) << endl;
+    cout << left << setw(20) << "COMPROG2" << setw(10) << compProg2Qtr1 << setw(10) << compProg2Qtr2 << setw(10) << avgCompProg2 << setw(10) << checkPassOrFail(avgCompProg2) << endl;
+    
+    cout << setfill('-') << setw(50) << "-" << endl;
+    cout << left << setw(20) << "Gen. Average" << setw(30) << generalAverage << setw(10) << checkPassOrFail(generalAverage) << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
+
+    cout << "Adviser: Rodolfo Canaria " << adviser << endl;
+    cout << "Deadline: Oct. 10, 2024" << endl;
+    cout << setfill('=') << setw(50) << "=" << endl;
+
+    return 0;
 }
-======================================
