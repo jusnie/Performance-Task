@@ -16,9 +16,9 @@ string checkPassOrFail(float average) {
 int main() {
     // Student details
     string lrnNo = "1234567890";
-    string firstName = "Juan", middleInitial = "D.", lastName = "Dela Cruz";
-    string track = "TVL-ICT", section = "ICT-JOBS", sex = "Male", adviser = "Name of Adviser";
-    int gradeLevel = 12, age = 16;
+    string firstName = "Juanie", middleInitial = "C.", lastName = "Cuenca";
+    string track = "TVL-ICT", section = "11 - JOBS", sex = "Male", adviser = " ";
+    int gradeLevel = 11, age = 18;
     string schoolYear = "S.Y. 2024 – 2025";
     string schoolName = "Gen. Tiburcio De Leon National High School";
 
