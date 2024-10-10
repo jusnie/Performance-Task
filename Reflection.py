@@ -24,6 +24,9 @@ Still, working with it teaches the value of minimalism and efficiency and the im
 There might be some issues, though - especially in terms of limited debugging and features compared to most other IDEs. Beating those problems makes you think critically and gives you problem-solving abilities as well. 
 You come to realize just how much technology has advanced and appreciate the origin of C++ programming roots that eventually led to the development of the highly advanced programming frameworks in use today.
 
+My reflection on my experience is that it is fun and also kind of hard because i am still learning programming and it is a big help for me to learn more because of the experience i had and it can help me for other future activities so that i know what i am going to do
+and it will become more easier and easier once i had a lot more experience coding things
+
 Learning Turbo C++ can be an excellent experience because it would sharpen the foundational programming skills as well as provide you with a historical view of software development, 
 so you are pretty well prepared to adapt to learning more modern tools and languages.
         """
